@@ -64,6 +64,9 @@ const SignUpForm = ({ onSubmitSuccess }) => {
       const response = await fetch('https://affiliate-marketing-user-dashboard-server.onrender.com/api/users/register', {
         method: 'POST',
         body: formData,
+      }).catch(error => {
+        console.error('Fetch error:', error);
+        throw error;
       });
   
       const result = await response.json();
